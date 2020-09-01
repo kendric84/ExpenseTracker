@@ -1,0 +1,125 @@
+#input-header {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  text-align: center;
+}
+
+#header {
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  font-family: "Calibri";
+}
+
+#user-input {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  float: none;
+}
+
+#category {
+  width: 270px;
+  margin: 10px;
+  font-family: "Calibri";
+  border-radius: 0px;
+}
+
+#category-options {
+}
+
+#location {
+  width: 270px;
+  margin: 10px;
+  font-family: "Calibri";
+  border-radius: 0px;
+}
+
+#location-options {
+}
+
+#amount {
+  width: 270px;
+  margin: 10px;
+  font-family: "Calibri";
+  border-radius: 0px;
+}
+
+#date {
+  width: 170px;
+  margin: 10px;
+  font-family: "Calibri";
+  border-radius: 0px;
+}
+
+#description {
+  width: 580px;
+  margin: 10px;
+  height: 40px;
+  font-family: "Calibri";
+  border-radius: 0px;
+}
+
+#add-button {
+  margin: 10px;
+  font-family: "Calibri";
+  border-radius: 0px;
+}
+
+#table-section {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+  float: none;
+}
+
+.table-header {
+  color: rgb(62, 62, 62);
+  border: 2px solid lightgray;
+  font-family: "Calibri";
+  font-size: 10pt;
+  padding: 10px;
+}
+
+.table-detail {
+  color: rgb(62, 62, 62);
+  border: 2px solid lightgray;
+  font-family: "Calibri";
+  font-size: 10pt;
+  padding: 10px;
+}
+
+#button-div {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  text-align: center;
+}
+
+.amount-column::before {
+  content:"$";
+}
+
+.remove-column {
+  text-align: center;
+}
+
+.id-column {
+  min-width: 27px;
+  text-align: center;
+}
+
+.amount-column {
+  min-width: 67px;
+}
+
+#clear-button {
+  font-family: "Calibri";
+  border-radius: 0px;
+}
+
+#sample-data-button {
+  font-family: "Calibri";
+  border-radius: 0px;
+}

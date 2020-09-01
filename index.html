@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="input-header">
+      <h1 id="header">Expense Tracker</h1>
+    </div>
+    <form id="user-input">
+      <input
+        id="category"
+        type="text"
+        list="category-options"
+        placeholder="Category..."
+      />
+      <datalist id="category-options"> </datalist>
+      <input
+        id="location"
+        type="text"
+        list="location-options"
+        placeholder="Location..."
+      />
+      <datalist id="location-options"> </datalist>
+      <br />
+      <input id="amount" type="text" placeholder="Amount..." />
+      <input id="date" type="date" />
+      <br />
+      <input id="description" type="text" placeholder="Description..." />
+      <br />
+      <input id="add-button" type="submit" value="Add Expense" />
+    </form>
+    <div id="table-section">
+      <table id="expense-table">
+        <tr id="table-column-headers">
+          <th id="id-header" class="table-header">ID &#8597;</th>
+          <th id="category-header" class="table-header">CATEGORY &#8597;</th>
+          <th id="location-header" class="table-header">LOCATION &#8597;</th>
+          <th id="amount-header" class="table-header">AMOUNT &#8597;</th>
+          <th id="date-header" class="table-header">DATE &#8597;</th>
+          <th id="description-header" class="table-header">DESCRIPTION &#8597;</th>
+          <th class="table-header">REMOVE</th>
+        </tr>
+      </table>
+    </div>
+    <br />
+    <br />
+    <div id="button-div">
+      <input id="clear-button" type="submit" value="Clear User Data" />
+      <input id="sample-data-button" type="submit" value="Load Sample Data" />
+    </div>
+    <script src="SampleData.js"></script>
+    <script src="code.js"></script>
+  </body>
+</html>
