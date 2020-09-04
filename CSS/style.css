@@ -72,7 +72,7 @@
 
 #add-button {
   margin: 10px;
-  margin-bottom: 15px;;
+  margin-bottom: 15px;
   font-family: "Calibri";
   border-radius: 0px;
 }
@@ -109,7 +109,7 @@
 }
 
 .amount-column::before {
-  content:"$";
+  content: "$";
 }
 
 .remove-column {

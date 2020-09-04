@@ -46,7 +46,7 @@ function refreshOptions() {
 
   let dl = document.getElementById("category-options");
   while (dl.hasChildNodes()) {
-  dl.removeChild(dl.childNodes[0]);
+    dl.removeChild(dl.childNodes[0]);
   }
   for (let i = 0; i < categoryOptions.length; i++) {
     let op = document.createElement("option");
@@ -56,7 +56,7 @@ function refreshOptions() {
 
   dl = document.getElementById("location-options");
   while (dl.hasChildNodes()) {
-  dl.removeChild(dl.childNodes[0]);
+    dl.removeChild(dl.childNodes[0]);
   }
   for (let i = 0; i < locationOptions.length; i++) {
     let op = document.createElement("option");
@@ -67,6 +67,7 @@ function refreshOptions() {
 
 function pullData() {
   if (dataSource === "user") {
+    localData = [];
     let keys = Object.keys(localStorage);
     let i = keys.length;
     while (i--) {
@@ -78,7 +79,7 @@ function pullData() {
   }
 }
 
-  function refreshTable() {
+function refreshTable() {
   let tableRows = document.getElementsByClassName("table-detail-rows");
   while (tableRows[0]) {
     tableRows[0].parentElement.removeChild(tableRows[0]);
@@ -138,11 +139,14 @@ document.getElementById("add-button").addEventListener("click", function () {
 });
 
 document.getElementById("clear-button").addEventListener("click", function () {
-  localStorage.clear();
-  dataSource = "user";
-  localData = [];
-  dataSet = localData
-  document.getElementById("sample-data-button").value = "Load Sample Data";
+  if (dataButton.value === "Load Sample Data") {
+    localStorage.clear();
+    dataSource = "user";
+    localData = [];
+    dataSet = localData;
+  } else {
+    dataSet = [];
+  }
   refreshTable();
 });
 
@@ -166,10 +170,9 @@ function setRemoveRowsClick() {
   for (let i = 0; i < removeColumn.length; i++) {
     removeColumn[i].addEventListener("click", function () {
       if (dataSource === "user") {
-      localStorage.removeItem(i);
-      pullData();
-      }
-      else if (dataSource === "sample") {
+        localStorage.removeItem(i);
+        pullData();
+      } else if (dataSource === "sample") {
         sampleData.splice(i, 1);
       }
       refreshTable();
