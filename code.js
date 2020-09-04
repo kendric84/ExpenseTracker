@@ -140,6 +140,7 @@ document.getElementById("add-button").addEventListener("click", function () {
 document.getElementById("clear-button").addEventListener("click", function () {
   localStorage.clear();
   dataSource = "user";
+  localData = [];
   dataSet = localData
   document.getElementById("sample-data-button").value = "Load Sample Data";
   refreshTable();
