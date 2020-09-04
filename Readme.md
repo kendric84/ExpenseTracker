@@ -13,7 +13,7 @@ The app will also pre-populate drop-down options for category and location based
 
 The table can be sorted by any column and individual items can be removed.
 
-To better illistrate the features, sample data can be loaded.
+To better illustrate the features, sample data can be loaded.
 
 ## Author
 - **Graham Smith** - Full-Stack Software Developer
