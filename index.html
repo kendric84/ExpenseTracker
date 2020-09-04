@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expense Tracker</title>
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="./CSS/style.css" rel="stylesheet" />
   </head>
   <body>
     <div id="input-header">
@@ -31,7 +31,9 @@
       <br />
       <input id="description" type="text" placeholder="Description..." />
       <br />
-      <input id="add-button" type="submit" value="Add Expense" />
+      <div id="add-button-div">
+        <input id="add-button" type="submit" value="Add Expense" />
+      </div>
     </form>
     <div id="table-section">
       <table id="expense-table">
@@ -41,7 +43,9 @@
           <th id="location-header" class="table-header">LOCATION &#8597;</th>
           <th id="amount-header" class="table-header">AMOUNT &#8597;</th>
           <th id="date-header" class="table-header">DATE &#8597;</th>
-          <th id="description-header" class="table-header">DESCRIPTION &#8597;</th>
+          <th id="description-header" class="table-header">
+            DESCRIPTION &#8597;
+          </th>
           <th class="table-header">REMOVE</th>
         </tr>
       </table>
@@ -49,7 +53,7 @@
     <br />
     <br />
     <div id="button-div">
-      <input id="clear-button" type="submit" value="Clear User Data" />
+      <input id="clear-button" type="submit" value="Clear Table" />
       <input id="sample-data-button" type="submit" value="Load Sample Data" />
     </div>
     <script src="SampleData.js"></script>

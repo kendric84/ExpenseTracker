@@ -7,7 +7,7 @@
 
 #header {
   display: block;
-  margin: 0 auto;
+  margin: 10 auto;
   width: auto;
   font-family: "Calibri";
 }
@@ -27,6 +27,7 @@
 }
 
 #category-options {
+  font-family: "Calibri";
 }
 
 #location {
@@ -37,6 +38,7 @@
 }
 
 #location-options {
+  font-family: "Calibri";
 }
 
 #amount {
@@ -61,8 +63,16 @@
   border-radius: 0px;
 }
 
+#add-button-div {
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  display: flex;
+}
+
 #add-button {
   margin: 10px;
+  margin-bottom: 15px;;
   font-family: "Calibri";
   border-radius: 0px;
 }
@@ -70,8 +80,9 @@
 #table-section {
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
   max-width: 800px;
-  float: none;
+  display: flex;
 }
 
 .table-header {

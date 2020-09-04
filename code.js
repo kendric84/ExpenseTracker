@@ -7,8 +7,9 @@ let dataSource = "user";
 let dataSet = [];
 let categoryOptions = [];
 let locationOptions = [];
+let localData = [];
 
-document.addEventListener("DOMContentLoaded", refreshTable());
+document.addEventListener("DOMContentLoaded", pullData(), refreshTable());
 
 function pushNewItem() {
   let idMax = 0;
@@ -26,38 +27,46 @@ function pushNewItem() {
   newItem.push(expenseDescription.value);
   newItem.push("X");
   localStorage.setItem(idMax, JSON.stringify(newItem));
+  pullData();
   refreshTable();
 }
 
 function refreshOptions() {
+  categoryOptions = [];
+  locationOptions = [];
   for (let i = 0; i < dataSet.length; i++) {
     categoryOptions.push(dataSet[i][1]);
     locationOptions.push(dataSet[i][2]);
   }
 
-  categoryOptions = [...new Set(categoryOptions)];
-  locationOptions = [...new Set(locationOptions)];
   categoryOptions.sort();
   locationOptions.sort();
+  categoryOptions = [...new Set(categoryOptions)];
+  locationOptions = [...new Set(locationOptions)];
 
+  let dl = document.getElementById("category-options");
+  while (dl.hasChildNodes()) {
+  dl.removeChild(dl.childNodes[0]);
+  }
   for (let i = 0; i < categoryOptions.length; i++) {
-    let dl = document.getElementById("category-options");
     let op = document.createElement("option");
     op.value = categoryOptions[i];
     dl.appendChild(op);
   }
 
+  dl = document.getElementById("location-options");
+  while (dl.hasChildNodes()) {
+  dl.removeChild(dl.childNodes[0]);
+  }
   for (let i = 0; i < locationOptions.length; i++) {
-    let dl = document.getElementById("location-options");
     let op = document.createElement("option");
     op.value = locationOptions[i];
     dl.appendChild(op);
   }
 }
 
-function refreshTable() {
+function pullData() {
   if (dataSource === "user") {
-    let localData = [];
     let keys = Object.keys(localStorage);
     let i = keys.length;
     while (i--) {
@@ -67,7 +76,9 @@ function refreshTable() {
   } else {
     dataSet = sampleData;
   }
+}
 
+  function refreshTable() {
   let tableRows = document.getElementsByClassName("table-detail-rows");
   while (tableRows[0]) {
     tableRows[0].parentElement.removeChild(tableRows[0]);
@@ -128,9 +139,9 @@ document.getElementById("add-button").addEventListener("click", function () {
 
 document.getElementById("clear-button").addEventListener("click", function () {
   localStorage.clear();
-  dataSource = "sample";
-  dataButton = document.getElementById("sample-data-button").value =
-    "Load User Data";
+  dataSource = "user";
+  dataSet = localData
+  document.getElementById("sample-data-button").value = "Load Sample Data";
   refreshTable();
 });
 
@@ -139,10 +150,12 @@ dataButton.addEventListener("click", function () {
   if (dataButton.value === "Load Sample Data") {
     dataButton.value = "Load User Data";
     dataSource = "sample";
+    dataSet = sampleData;
     refreshTable();
   } else {
     dataButton.value = "Load Sample Data";
     dataSource = "user";
+    dataSet = localData;
     refreshTable();
   }
 });
@@ -151,8 +164,14 @@ function setRemoveRowsClick() {
   let removeColumn = document.getElementsByClassName("remove-column");
   for (let i = 0; i < removeColumn.length; i++) {
     removeColumn[i].addEventListener("click", function () {
-      row = document.getElementById(this.id);
-      row.parentElement.removeChild(row);
+      if (dataSource === "user") {
+      localStorage.removeItem(i);
+      pullData();
+      }
+      else if (dataSource === "sample") {
+        sampleData.splice(i, 1);
+      }
+      refreshTable();
       setMouseOver();
     });
   }
